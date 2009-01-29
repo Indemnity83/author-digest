@@ -3,6 +3,7 @@
  * @package author-digest
  * @author Kyle Klaus
  * @version 1.0.0
+ * @abstract Tools for multi-author WordPress installations.
  */
 
 /*
@@ -31,11 +32,15 @@ Author URI: http://indemnity83.com
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
+/**
+ * The current plugin version
+ */
 define('ADIGEST_VERSION','1.0.0');
 
-add_action(	'wp_head',		'adigest_css');
-add_action(	'admin_menu',	'adigest_menu');
-add_filter(	'the_content',	'adigest_init');
+add_action('wp_head', 'adigest_css');
+add_action('admin_menu', 'adigest_menu');
+
+add_shortcode('author','adigest_shortcode');
 
 register_activation_hook(__FILE__,'adigest_activate');
 register_deactivation_hook( __FILE__, 'adigest_deactivate' );
@@ -82,25 +87,41 @@ function adigest_options() {
 }
 
 /**
- * Replace tag(s) in content with user details
- * @var string the content to be modified
- * @return string the modified text
+ * Handle the shortcode in content
+ * @var array shortcode attributes
+ * @var string shortcode content
+ * @return string formatted shortcode replacement
  */
-function adigest_init( $content ) {
-	if( strpos($content, '[PROPMANAGER]') === false ){
-		return $content;
-	} else {
-		$code = propmanager_list();
-		$content = str_replace( '[PROPMANAGER]', $code, $content );
-		return $content;
+function adigest_shortcode($atts,$content = null) {
+	extract( shortcode_atts( array(
+    	'expanded' => true,
+	), $atts ) );
+	
+    if( $content != null ) {
+		if( $expanded == true ) {
+			$authid = $content;
+      		return adigest_author(get_userdata($authid));
+      	}
 	}
+	
+	return 'Author Digest Error';
 }
 
+
+
 /**
- * Output the Author Page
+ * Return the expanded author content
+ * @var object author meta
+ * @return string expanded author content
  */
-function adigest_author($id) {
-	
+function adigest_author($author) {
+	$content  = '<dl>';
+	$content .= '	<dt><a href="http://www.prudentialnorcal.com/?author='.$author->ID.'" />'.$author->first_name.' '.$author->last_name.'</a></dt>';
+	$content .= '	<dd class="img"><a href="http://www.prudentialnorcal.com/?author='.$author->ID.'" /><img src="http://www.prudentialnorcal.com/wp-content/profile-pics/'.$author->ID.'.jpg" width="80" /></a></dd>';
+	$content .= '	<dd></dd>';
+	$content .= '</dl>';
+
+	return $content;
 }
 
 /**
