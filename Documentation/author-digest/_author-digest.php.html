@@ -58,7 +58,13 @@ Source Location: /author-digest.php<br /><br />
     <td><b>version:</b>&nbsp;&nbsp;</td><td>1.0.0</td>
   </tr>
   <tr>
+    <td><b>copyright:</b>&nbsp;&nbsp;</td><td>Copyright 2009  Kyle Klaus  (email : kklaus@indemnity83.com)</td>
+  </tr>
+  <tr>
     <td><b>abstract:</b>&nbsp;&nbsp;</td><td>Tools for multi-author WordPress installations.</td>
+  </tr>
+  <tr>
+    <td><b>license:</b>&nbsp;&nbsp;</td><td>This</td>
   </tr>
 </table>
 </div>
@@ -67,7 +73,7 @@ Source Location: /author-digest.php<br /><br />
 <br /><br />
   <hr />
 	<a name="defineADIGEST_VERSION"></a>
-	<h3>ADIGEST_VERSION <span class="smalllinenumber">[line 38]</span></h3>
+	<h3>ADIGEST_VERSION <span class="smalllinenumber">[line 35]</span></h3>
 	<div class="tags">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -81,7 +87,7 @@ Source Location: /author-digest.php<br /><br />
 <br />
   <hr />
 	<a name="functionadigest_activate"></a>
-	<h3>adigest_activate <span class="smalllinenumber">[line 51]</span></h3>
+	<h3>adigest_activate <span class="smalllinenumber">[line 48]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
@@ -96,28 +102,16 @@ Source Location: /author-digest.php<br /><br />
 	</div>
   <hr />
 	<a name="functionadigest_author"></a>
-	<h3>adigest_author <span class="smalllinenumber">[line 117]</span></h3>
+	<h3>adigest_author <span class="smalllinenumber">[line 121]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string adigest_author(
+		<code>void adigest_author(
  $author)</code>
     </td></tr></table>
     </td></tr></table><br />
 
-		Return the expanded author content<br /><br /><br /><br />
-<h4>Tags:</h4>
-<div class="tags">
-<table border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><b>var:</b>&nbsp;&nbsp;</td><td>meta</td>
-  </tr>
-  <tr>
-    <td><b>return:</b>&nbsp;&nbsp;</td><td>expanded author content</td>
-  </tr>
-</table>
-</div>
-    <br /><br />
+		Output a single author definition<br /><br />    <br /><br />
 	
     		<h4>Parameters</h4>
     <table border="0" cellspacing="0" cellpadding="0">
@@ -130,100 +124,17 @@ Source Location: /author-digest.php<br /><br />
     	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
 	</div>
   <hr />
-	<a name="functionadigest_css"></a>
-	<h3>adigest_css <span class="smalllinenumber">[line 137]</span></h3>
+	<a name="functionadigest_author_shortcode"></a>
+	<h3>adigest_author_shortcode <span class="smalllinenumber">[line 93]</span></h3>
 	<div class="function">
     <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
     <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void adigest_css(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-
-		Print out the required CSS to format various elements of the Author Digests plugin<br /><br />    <br /><br />
-	
-    	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
-	</div>
-  <hr />
-	<a name="functionadigest_deactivate"></a>
-	<h3>adigest_deactivate <span class="smalllinenumber">[line 58]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void adigest_deactivate(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-
-		Perform some cleanup, and deactivate the plugin<br /><br />    <br /><br />
-	
-    	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
-	</div>
-  <hr />
-	<a name="functionadigest_list"></a>
-	<h3>adigest_list <span class="smalllinenumber">[line 130]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void adigest_list(
- $options)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-
-		Output the Author List<br /><br />    <br /><br />
-	
-    		<h4>Parameters</h4>
-    <table border="0" cellspacing="0" cellpadding="0">
-		      <tr>
-        <td class="type">&nbsp;&nbsp;</td>
-        <td><b>$options</b>&nbsp;&nbsp;</td>
-        <td></td>
-      </tr>
-				</table>
-    	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
-	</div>
-  <hr />
-	<a name="functionadigest_menu"></a>
-	<h3>adigest_menu <span class="smalllinenumber">[line 65]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void adigest_menu(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-
-		Display the menu items for the plugin<br /><br />    <br /><br />
-	
-    	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
-	</div>
-  <hr />
-	<a name="functionadigest_options"></a>
-	<h3>adigest_options <span class="smalllinenumber">[line 72]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>void adigest_options(
-)</code>
-    </td></tr></table>
-    </td></tr></table><br />
-
-		Display the options page for the plugin<br /><br />    <br /><br />
-	
-    	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
-	</div>
-  <hr />
-	<a name="functionadigest_shortcode"></a>
-	<h3>adigest_shortcode <span class="smalllinenumber">[line 95]</span></h3>
-	<div class="function">
-    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
-    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
-		<code>string adigest_shortcode(
+		<code>string adigest_author_shortcode(
  $atts, [ $content = null])</code>
     </td></tr></table>
     </td></tr></table><br />
 
-		Handle the shortcode in content<br /><br /><br /><br />
+		Handle the 'author' shortcode in content<br /><br /><br /><br />
 <h4>Tags:</h4>
 <div class="tags">
 <table border="0" cellspacing="0" cellpadding="0">
@@ -252,10 +163,93 @@ Source Location: /author-digest.php<br /><br />
 				</table>
     	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
 	</div>
+  <hr />
+	<a name="functionadigest_css"></a>
+	<h3>adigest_css <span class="smalllinenumber">[line 142]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void adigest_css(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+
+		Print out the required CSS to format various elements of the Author Digests plugin<br /><br />    <br /><br />
+	
+    	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+	</div>
+  <hr />
+	<a name="functionadigest_deactivate"></a>
+	<h3>adigest_deactivate <span class="smalllinenumber">[line 56]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void adigest_deactivate(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+
+		Perform some cleanup, and deactivate the plugin<br /><br />    <br /><br />
+	
+    	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+	</div>
+  <hr />
+	<a name="functionadigest_list"></a>
+	<h3>adigest_list <span class="smalllinenumber">[line 135]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void adigest_list(
+ $options)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+
+		Output the Author List<br /><br />    <br /><br />
+	
+    		<h4>Parameters</h4>
+    <table border="0" cellspacing="0" cellpadding="0">
+		      <tr>
+        <td class="type">&nbsp;&nbsp;</td>
+        <td><b>$options</b>&nbsp;&nbsp;</td>
+        <td></td>
+      </tr>
+				</table>
+    	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+	</div>
+  <hr />
+	<a name="functionadigest_menu"></a>
+	<h3>adigest_menu <span class="smalllinenumber">[line 63]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void adigest_menu(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+
+		Display the menu items for the plugin<br /><br />    <br /><br />
+	
+    	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+	</div>
+  <hr />
+	<a name="functionadigest_options"></a>
+	<h3>adigest_options <span class="smalllinenumber">[line 70]</span></h3>
+	<div class="function">
+    <table width="90%" border="0" cellspacing="0" cellpadding="1"><tr><td class="code_border">
+    <table width="100%" border="0" cellspacing="0" cellpadding="2"><tr><td class="code">
+		<code>void adigest_options(
+)</code>
+    </td></tr></table>
+    </td></tr></table><br />
+
+		Display the options page for the plugin<br /><br />    <br /><br />
+	
+    	<div class="top">[ <a href="#top">Top</a> ]</div><br /><br />
+	</div>
 
         <div class="credit">
 		    <hr />
-		    Documentation generated on Thu, 29 Jan 2009 09:36:47 -0800 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
+		    Documentation generated on Sat, 31 Jan 2009 05:46:31 -0800 by <a href="http://www.phpdoc.org">phpDocumentor 1.4.1</a>
 	      </div>
       </td></tr></table>
     </td>
