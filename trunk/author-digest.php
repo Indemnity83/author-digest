@@ -5,20 +5,24 @@
  * @version 1.0.0
  * @abstract Tools for multi-author WordPress installations.
  * @copyright Copyright 2009  Kyle Klaus  (email : kklaus@indemnity83.com)
- * @license This program is free software; you can redistribute it and/or modify
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
+ */
+
+/* Copyright 2009  Kyle Klaus  (email : kklaus@indemnity83.com)
+ * 
+ * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
+ * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- *
+ * 
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- *
+ * 
  * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
- */
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */   
 
 /*
 Plugin Name: Author Digest
@@ -121,8 +125,8 @@ function adigest_author_shortcode($atts,$content = null) {
 function adigest_author($author) {
 	$body  = '<div class="author">';
 	$body .= '  <dl>';
-	$body .= '	  <dt><a href="http://www.prudentialnorcal.com/?author='.$author->ID.'" />'.$author->nickname.'</a></dt>';
-	$body .= '	  <dd class="img"><a href="http://www.prudentialnorcal.com/?author='.$author->ID.'" />'.get_avatar( $author->ID, $size = '80' ).'</a></dd>';
+	$body .= '	  <dt><a href="'.$wp_path.'?author='.$author->ID.'" />'.$author->nickname.'</a></dt>';
+	$body .= '	  <dd class="img"><a href="'.$wp_path.'?author='.$author->ID.'" />'.get_avatar( $author->ID, $size = '80' ).'</a></dd>';
 	$body .= '	  <dd>Welcome to WordPress. This is your first post. Edit or delete it, then start blogging!</dd>';
 	$body .= '  </dl>';
 	$body .= '</div>';
@@ -132,8 +136,15 @@ function adigest_author($author) {
 /**
  * Output the Author List
  */
-function adigest_list($options) {
-	$author = get_userdata(intval($id));
+function adigest_list() {
+	global $wpdb;	
+	$authors = $wpdb->get_results("SELECT * from " . $wpdb->users);	
+
+	foreach( $authors as $author ) { 
+		$author = get_userdata(intval($author->ID));
+		$body .= adigest_author($author);
+	}
+	return $body;
 }
 
 /**
@@ -144,34 +155,31 @@ function adigest_css() {
 	<style type='text/css'>
 		.author {
 			float: left;
-			width: 500px;
+			width: 450px;
 			padding: 0;	
-		}
-		
+			margin: 0;
+			}		
 		.author dl {
 			float: left;
-			width: 460px;
-			margin: 10px 20px;
+			width: 450px;
+			margin: 20px 0;
 			padding: 0;
 			display: inline; /* fixes IE/Win double margin bug */
-		}
-		
+			}
 		.author dt {
 			float: right;
-			width: 362px;
+			width: 352px;
 			margin: 0;
 			padding: 0;
 			font-size: 130%;
 			letter-spacing: 1px;
-		}
-		
+			}
 		.author dd {
 			margin: 0;
 			padding: 0;
 			font-size: 85%;
 			line-height: 1.5em;	
-		}
-		
+			}
 		.author dd.img img {
 			float: left;
 			margin: 0 8px 0 0;
@@ -180,7 +188,7 @@ function adigest_css() {
 			border-bottom-color: #C8CDD2;
 			border-rright-color: #C8CDD2;
 			background: #FFF;	
-		}	
+			}	
 	</style>
 	";
 }
